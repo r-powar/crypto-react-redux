@@ -85,7 +85,16 @@ const rootReducer = (state = initialState, action) => {
             dropDownData: [...state.dropDownData, deletedItem]
         }
     }
-
+    if(action.type === 'ADD_CRYPTO_ITEM'){
+        let id = action.id;
+        let toAddItem = state.dropDownData.find(data => data.id === id);
+        let dropDownData = state.dropDownData.filter(data => data.id !== id);
+        return {
+            ...state,
+            tableData: [...state.tableData, toAddItem],
+            dropDownData
+        }
+    }
     return state;
 };
 
