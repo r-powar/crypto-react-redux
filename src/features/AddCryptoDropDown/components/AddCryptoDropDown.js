@@ -1,10 +1,9 @@
 import React from 'react';
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Dropdown, Button, Divider} from "react-materialize";
 import {addCrypto} from "../../../actions";
 
-const AddCryptoDropDown = () => {
-    const {dropDownData} = useSelector(state => state);
+const AddCryptoDropDown = ({dropDownData}) => {
     const dispatch = useDispatch();
 
     return (
@@ -30,10 +29,10 @@ const AddCryptoDropDown = () => {
             >
                 {dropDownData.map((item) => {
                     return (
-                        <>
-                            <a href="#" onClick={() => dispatch(addCrypto(item.id))} key={item.id}>{item.name}</a>
+                        <React.Fragment key={item.id}>
+                            <a href="#" onClick={() => dispatch(addCrypto(item.id))}>{item.name}</a>
                             <Divider/>
-                        </>
+                        </React.Fragment>
                     )
                 })}
             </Dropdown>

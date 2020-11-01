@@ -1,10 +1,9 @@
 import React from 'react';
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Table} from 'react-materialize';
 import {removeCrypto} from "../../../actions";
 
-const CryptoTable = () => {
-    const {tableData} = useSelector(state => state);
+const CryptoTable = ({tableData}) => {
     const dispatch = useDispatch();
 
     return (
@@ -13,7 +12,7 @@ const CryptoTable = () => {
                 <tr>
                     <th>Symbol</th>
                     <th>CMC Rank</th>
-                    <th>Price</th>
+                    <th>Price (USD)</th>
                     {tableData.length > 1 ? <th>{''}</th> : null}
                 </tr>
                 </thead>
@@ -22,8 +21,8 @@ const CryptoTable = () => {
                     return (
                         <tr key={item.id}>
                             <td>{item.symbol}</td>
-                            <td>{item.cmcRank}</td>
-                            <td>{item.price}</td>
+                            <td>{item.cmc_rank}</td>
+                            <td>${item.price}</td>
                             {tableData.length > 1 ?
                                 <td onClick={() => dispatch(removeCrypto(item.id))}>
                                     <a href="#" className="waves-effect waves-light btn">Remove</a>

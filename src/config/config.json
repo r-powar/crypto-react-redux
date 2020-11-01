@@ -3,5 +3,7 @@
     "ENDPOINT": {
         "map": "/map",
         "quotes": "/quotes"
-    }
+    },
+    "MAX_ITEMS_TABLE": 5,
+    "MAX_ITEMS_DROP_DOWN": 5
 }
