@@ -5,14 +5,14 @@ const getCryptoData = () => {
     let mapEndpoint = configData.ENDPOINT.map;
     let quotesEndpoint = configData.ENDPOINT.quotes;
 
-    return fetch(serverUrl + mapEndpoint + '?limit='`${configData.DATA_LIMIT}`)
+    return fetch(serverUrl + mapEndpoint + `?limit=${configData.DATA_LIMIT}`)
         .then(response => response.json())
         .then(response => {
             let listIds = [];
             const {data} = response;
             data.forEach((item) => listIds.push(item.id));
 
-            return fetch(serverUrl + quotesEndpoint + '?id='`${listIds.join()}`)
+            return fetch(serverUrl + quotesEndpoint + `?id=${listIds.join()}`)
         })
         .then(response => response.json())
         .then(response => {

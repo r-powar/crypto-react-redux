@@ -38,10 +38,10 @@ const CryptoTable = ({tableData}) => {
 
 CryptoTable.propTypes = {
     tableData: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
         symbol: PropTypes.string.isRequired,
-        cmc_rank: PropTypes.string.isRequired,
-        price: PropTypes.string.isRequired
+        cmc_rank: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired
     }))
 };
 

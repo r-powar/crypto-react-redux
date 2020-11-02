@@ -43,7 +43,7 @@ const AddCryptoDropDown = ({dropDownData}) => {
 
 AddCryptoDropDown.propTypes = {
     dropDownData: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired
+        id: PropTypes.number.isRequired
     }))
 };
 
