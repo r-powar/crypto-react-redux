@@ -2,6 +2,7 @@ import React from 'react';
 import {useDispatch} from "react-redux";
 import {Table} from 'react-materialize';
 import {removeCrypto} from "../../../actions";
+import PropTypes from 'prop-types';
 
 const CryptoTable = ({tableData}) => {
     const dispatch = useDispatch();
@@ -34,5 +35,15 @@ const CryptoTable = ({tableData}) => {
             </Table>
     )
 };
+
+CryptoTable.propTypes = {
+    tableData: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        symbol: PropTypes.string.isRequired,
+        cmc_rank: PropTypes.string.isRequired,
+        price: PropTypes.string.isRequired
+    }))
+};
+
 
 export default CryptoTable;

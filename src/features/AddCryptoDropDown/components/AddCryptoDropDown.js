@@ -2,6 +2,7 @@ import React from 'react';
 import {useDispatch} from "react-redux";
 import {Dropdown, Button, Divider} from "react-materialize";
 import {addCrypto} from "../../../actions";
+import PropTypes from 'prop-types';
 
 const AddCryptoDropDown = ({dropDownData}) => {
     const dispatch = useDispatch();
@@ -38,6 +39,12 @@ const AddCryptoDropDown = ({dropDownData}) => {
             </Dropdown>
             : null
     )
+};
+
+AddCryptoDropDown.propTypes = {
+    dropDownData: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired
+    }))
 };
 
 export default AddCryptoDropDown;
